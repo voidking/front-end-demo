@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style> 
+#div1
+{
+  text-align:center;
+  line-height:100px;
+  vertical-align:center;
+  border-radius:6px;
+  width:100px;
+  height:100px;
+  background:#D3E399;
+  -webkit-transition:width 1s, height 1s,transform 1s,background 1s;
+}
+
+#div1:hover
+{
+  width:200px;
+  height:200px;
+  background:#1EC7E6;
+  -webkit-transform:rotate(360deg); /* Safari and Chrome */
+}
+#div2
+{
+  text-align:center;
+  line-height:100px;
+  vertical-align:center;
+  border-radius:6px;
+  width:100px;
+  height:100px;
+  background:#D3E399;
+  -webkit-transition:width 1s, height 1s,transform 1s linear 1s,background 1s;
+}
+
+#div2:hover
+{
+  width:200px;
+  height:200px;
+  background:#1EC7E6;
+  -webkit-transform:rotate(360deg); /* Safari and Chrome */
+}
+</style>
+</head>
+<body>
+
+<div id="div1">CSS3过渡</div>
+<div id="div2">CSS3过渡</div>
+</body>
+</html>

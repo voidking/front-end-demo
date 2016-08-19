@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="UTF-8">
+	<title>网页定位导航</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+            font-size: 12px;
+            line-height: 1.7;
+        }
+        ul{
+			list-style: none;
+		}
+
+		#content{
+			width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		#content h1{
+			color: #0088bb;
+		}
+		.item{
+			border:1px dotted #0088bb;
+			padding:20px;
+			margin-bottom: 20px;
+		}
+		.item h2 {
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid #0088bb;
+            margin-bottom: 10px;
+        }
+        .item li{
+        	display: inline;
+        }
+        .item img{
+        	width: 230px;
+        	height: 230px;
+        }
+		#menu {
+		    position: fixed;
+		    top: 100px;
+		    left: 50%;
+		    margin-left: 400px;
+		    width: 50px;
+		}
+		#menu ul li a {
+		    display: block;
+		    margin: 5px 0;
+		    font-size: 14px;
+		    font-weight: bold;
+		    color: #333;
+		    width: 80px;
+		    height: 50px;
+		    line-height: 50px;
+		    text-decoration: none;
+		    text-align: center;
+		    //border: 1px solid #0088bb;
+		}
+
+		#menu ul li a:hover,
+		#menu ul li a.current {
+		    color: #fff;
+		    background: #0088bb;
+		}
+
+		
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(document).scroll(function(event) {
+				var items = $("#content").find(".item");
+				var menu = $("#menu");
+				var top = $(document).scrollTop();
+				var currentId = "";
+				items.each(function () {
+                    var m = $(this);
+                    if (top > m.offset().top - 300) {
+                    	//top相对于浏览器窗口
+                    	//m.offset().top相对于文档
+                        currentId = "#" + m.attr("id");
+                    } else {
+                        return false;
+                    }
+                });
+
+                var currentLink = menu.find(".current");
+                if (currentId && currentLink.attr("href") != currentId) {
+                    currentLink.removeClass("current");
+                    menu.find("a[href=" + currentId + "]").addClass("current");
+                }
+
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="content">
+		<h1>地狗购物网</h1>
+		<div class="item" id="item1">
+			<h2>1F 男装</h2>
+
+			<ul>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="1F.jpg" alt=""/></a></li>
+			</ul>
+		</div>
+
+		<div class="item" id="item2">
+			<h2>2F 女装</h2>
+
+			<ul>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="2F.jpg" alt=""/></a></li>
+			</ul>
+		</div>
+
+		<div class="item" id="item3">
+			<h2>3F 美妆</h2>
+
+			<ul>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="3F.jpg" alt=""/></a></li>
+			</ul>
+		</div>
+
+		<div class="item" id="item4">
+			<h2>4F 数码</h2>
+
+			<ul>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			    <li><a href="#"><img src="4F.png" alt=""/></a></li>
+			</ul>
+		</div>
+
+		<div class="item" id="item5">
+			<h2>5F 母婴</h2>
+
+			<ul>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			    <li><a href="#"><img src="5F.jpg" alt=""/></a></li>
+			</ul>
+		</div>
+	</div>
+	
+
+	<div id="menu">
+		<ul>
+			<li id="list1"><a href="#item1">1F 男装</a></li>
+			<li id="list2"><a href="#item2">2F 女装</a></li>
+			<li id="list3"><a href="#item3">3F 美妆</a></li>
+			<li id="list4"><a href="#item4">4F 数码</a></li>
+			<li id="list5"><a href="#item5">5F 母婴</a></li>
+		</ul>	
+	</div>
+</body>
+</html>
